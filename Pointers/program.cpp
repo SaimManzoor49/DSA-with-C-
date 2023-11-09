@@ -29,6 +29,7 @@ int SomeOfElements(int *a) // same as above
 /////////////////////////////////////////////////////////////////
 
 // void printStr(const char *C) //For ReadOnly
+// void printStr(char C[])
 void printStr(char *C)
 {
 
@@ -140,7 +141,7 @@ int main()
     ////////////////////////////////////////////        //
 
     // char *C = "saim"; // same as cout<<"saim"; // stays constant // C[2] = 's'; => not possible
-                      // cout<<*C; // s
+    // cout<<*C; // s
     // printStr(C);
 
     ///////////////////////////////
@@ -151,20 +152,45 @@ int main()
     //////////////////////////
 
     /////////////////////////////////////////// Pointers and multi Dimensional Arrays
-    
-        int a[2][3] = {{1,2,3},{4,5,6}};
 
-        ///// a[0]  =  arr[3] && a[1] = arr[3] two arrays of size 3 each stored in one array of size 2   
-        ///// a[0] === row 1
-        ///// a[1] === row 2
-        // So
-        // int *b = *a;  // *b = 1;
-        // int *b = *(a+1); // *b = 4;
-        // cout<<(*b);
-        // Or
-        // int (*b) [3] = a ; // correct 
+    // int a[2][3] = {{1,2,3},{4,5,6}};
+    // a = 1923#4 =>
+    // *a = a[0] = 892#3  = {1,2,3};
+    // *(a+1) = a[1] = 7843#4 ={4,5,6};
 
-        // cout<<**b; // 1
+    // cout<<*(*(a+1)+2);
+
+    // cout<<a<<endl;
+    // cout<<*a<<endl;
+    // cout<<a[0]<<endl;
+    ///// a[0]  =  arr[3] && a[1] = arr[3] two arrays of size 3 each stored in one array of size 2
+    ///// a[0] === row 1
+    ///// a[1] === row 2
+    // So
+    // int *b = *a;  // *b = 1;
+    // int *b = *(a+1); // *b = 4;
+    // cout<<(*b);
+    // Or
+    // int (*b) [3] = a ; // correct
+
+    // cout<<**b; // 1
+
+    int c[3][2][2] = {
+        {{1, 2}, {3, 4}},
+        {{5, 6}, {7, 8}},
+        {{9, 10}, {11, 12}}};
+
+    //          | x1,x2|
+    //          | y1,y2|
+    //          | z1,z2|
+
+    // c[0] = arrA[2] = arr2[2]+arr3[3]
+    // c[1] = arrB[2] = arr4[2]+arr5[3]
+    // c[0] = arrC[2] = arr6[2]+arr7[3]
+
+    // Func(int arr[][2][2]){} // size is required for all dimensions other then 1 // they got adresses in nested state
+    // Func(int (*arr)[2][2]){} // same as above
+    // pointer to pointer wont work in 2 or 3 dimensional arrays => Func(int **arr){} or Func(int ***arr){}  
 
     return 0;
 }
