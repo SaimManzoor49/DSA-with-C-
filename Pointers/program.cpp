@@ -175,6 +175,8 @@ int main()
 
     // cout<<**b; // 1
 
+    //////////////////////////////////////// 3d array + pointers
+
     int c[3][2][2] = {
         {{1, 2}, {3, 4}},
         {{5, 6}, {7, 8}},
@@ -188,9 +190,28 @@ int main()
     // c[1] = arrB[2] = arr4[2]+arr5[3]
     // c[0] = arrC[2] = arr6[2]+arr7[3]
 
+    // cout<<c[0][0][0]<<endl;//1
+    // cout<<(*c[0][0])<<endl;//1
+    // cout<<(*(*c[0]))<<endl;//1
+    // cout<<*(*(*c))<<endl;//1
+
+    // cout<<c[0][0][1]<<endl;//2
+    // cout<<((*(c))[0][1])<<endl;//2
+    // cout<<(*(*(c)))[1]<<endl;//2
+    // cout<<*(*(*c))+1<<endl;//2
+
+    
+    // cout<<c[2][1][1]<<endl;//12
+    // cout<<(*(c+2))[1][1]<<endl;//12
+    // cout<<(*(*(c+2)+1))[1]<<endl;//2
+    // cout<<*(*(*(c+2)+1)+1)<<endl;//2
+
+
+
     // Func(int arr[][2][2]){} // size is required for all dimensions other then 1 // they got adresses in nested state
     // Func(int (*arr)[2][2]){} // same as above
     // pointer to pointer wont work in 2 or 3 dimensional arrays => Func(int **arr){} or Func(int ***arr){}  
 
     return 0;
 }
+ 
