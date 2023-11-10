@@ -41,6 +41,48 @@ void printStr(char *C)
 }
 ////////////////////////////////////////////////////////////////
 
+int *sum(int *a, int *b)
+{
+
+    int *s = new int;
+    *s = *a + *b;
+    cout << s << " <- sum func " << &s << endl;
+    return s;
+}
+
+void greet(char *name)
+{
+    cout << "Hello! ";
+    while (*name != '\0')
+    {
+        cout << *name;
+        name++;
+    }
+    cout << endl;
+}
+
+//////////////////////////////////////////////////////////////
+
+void greetMe(void (*fn)(char *n), char *name)
+{
+
+    cout << "Hello ";
+    (*fn)(name);
+}
+//////////
+void fn(char *n)
+{
+    while (*n != '\0')
+    {
+        cout << *n;
+        n++;
+    }
+    cout << endl;
+}
+////////////////////////////////////////////////////////////////
+
+
+
 int main()
 {
 
@@ -89,7 +131,7 @@ int main()
 
     ///////////////////4} reinterpret cast syntax ->>> reinterpret_cast<type*>(&val) // Most dangerous casting not in cpp standerd used for Pointer to Pointer type casting
 
-    ///////////////////////////////////////////// Void Pointer
+    ///////////////////////////////////////////// Void Pointer (1 use case high end data protection)
     // int a = 10;
     // void *p = &a;
 
@@ -177,10 +219,10 @@ int main()
 
     //////////////////////////////////////// 3d array + pointers
 
-    int c[3][2][2] = {
-        {{1, 2}, {3, 4}},
-        {{5, 6}, {7, 8}},
-        {{9, 10}, {11, 12}}};
+    // int c[3][2][2] = {
+    //     {{1, 2}, {3, 4}},
+    //     {{5, 6}, {7, 8}},
+    //     {{9, 10}, {11, 12}}};
 
     //          | x1,x2|
     //          | y1,y2|
@@ -200,18 +242,84 @@ int main()
     // cout<<(*(*(c)))[1]<<endl;//2
     // cout<<*(*(*c))+1<<endl;//2
 
-    
     // cout<<c[2][1][1]<<endl;//12
     // cout<<(*(c+2))[1][1]<<endl;//12
     // cout<<(*(*(c+2)+1))[1]<<endl;//2
     // cout<<*(*(*(c+2)+1)+1)<<endl;//2
 
-
-
     // Func(int arr[][2][2]){} // size is required for all dimensions other then 1 // they got adresses in nested state
     // Func(int (*arr)[2][2]){} // same as above
-    // pointer to pointer wont work in 2 or 3 dimensional arrays => Func(int **arr){} or Func(int ***arr){}  
+    // pointer to pointer wont work in 2 or 3 dimensional arrays => Func(int **arr){} or Func(int ***arr){}
+
+    //////////////////////// Pointers and Dynamic memory (heap)
+    ////// Memory Segments
+    // 1 - code(Text) -- code instrunction -- constant
+    // 2 - Static/Global variable during exe --constant
+    // 3 - Stack - function calls  -- constant - during runTime
+    // 4 - Heap - dynamic memory  -- variable during execution (max up to avaliable memory in ram)
+
+    //////
+
+    // malloc return void pointer need type casting
+
+    // declaring array in heap (C)
+    //  int *arr = (int*)malloc(20*sizeof(int)); // array arr of size 20  // no memory returns null
+    //  free(arr); // deleting all values at arr addressess from heap but can still can be accessed
+    //  int *arr = (int*)calloc(20,sizeof(int)); // array arr of size 20 // all addresses initialize by value 0  // no memory returns null
+    //  int *arr = (int*)realloc(void * firstP // provided by (malloc or calloc),sizeof(int) // sizeOfNewBlock); // array arr of size 20 // can extend and reduce // no memory returns null
+
+    /////////////////////////Pointers as function return's // not appropriate could be overwritten any time (in Stack memory case only)
+
+    // int a = 2, b = 4;
+
+    // cout << sum(a, b) << endl;// correct
+
+    // with ponters
+    // int* r = sum(&a, &b);
+    // greet();
+    // cout << *r << endl;// wrong // after the return of sum-fun call , calling greet could rewrite address returned by sum-fun
+
+    /////////// Pointers as function return's Heap Memory -- cant be overwritten until we free or delete() memory
+    // int* r = sum(&a, &b);
+    // greet();
+    // cout<<*r;
+    ////now correct
+
+    ////////////////////////////////Function Pointers (pointer pointing to functions address)
+
+    // int a = 2, b = 4;
+    // int *(*FnPtr)(int*,int*);
+    // FnPtr=&sum;
+    // cout<<*(*FnPtr)(&a,&b)<<endl;
+
+    /////////
+
+    // char name[] = "saim";
+
+    // void (*FunGreet)(char*);
+
+    // FunGreet = &greet;
+    // (*FunGreet)(name); // == FunGreet(); == greet();
+
+    //////////////////////////// function pointer as argument to a function / Callbacks
+
+
+    char* name = (char*)malloc(8*sizeof(char));
+    
+    *name='s';
+    *(name+1)='a';
+    *(name+2)='i';
+    *(name+3)='m';
+    *(name+4)='\0';
+
+    void (*fnWName)(char*);
+    fnWName = &fn;
+
+
+    void (*sayHello)(void(char*),char*);
+    sayHello = &greetMe;
+    (*sayHello)(fnWName,name);
+
 
     return 0;
 }
- 
