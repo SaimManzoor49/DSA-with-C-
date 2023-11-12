@@ -318,7 +318,7 @@ int main()
 
     void (*sayHello)(void(char*),char*);
     sayHello = &greetMe;
-    (*sayHello)(fnWName,name);
+    (*sayHello)(fnWName,name);// output = hello saim
 
 
     return 0;
