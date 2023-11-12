@@ -27,10 +27,92 @@ int main()
     // int c = a*b;
     // cout<<c; // = 1410065408 -> exceed int range;
 
-    int a = 100000;
-    int b = 100000;
-    double c = a*b;
-    cout<<c; // = 1410065408 -> exceed int range;
+    // int a = 100000;
+    // int b = 100000;
+    // long longint c = a*b;
+    // cout<<c; // = 1410065408 -> still exceed int range why? bcz first calculated as int then stored in double (while calculating as int is exceeded the range)
 
+    // int a = 100000;
+    // int b = 100000;
+    // double c = a*1LL*b;//higher order = long long int so treated as LLi
+    // cout<<fixed<<setprecision(0)<<c; // = 1e+010 = 1x10^10 // correct // fixed to remove scientfic notation // setprecision(0) to remove floting point nums
+
+
+    // double c = 1e24;//higher order = long long int so treated as LLi
+    // cout<<fixed<<c; // = 99999998322.000 something but not 1e24 why? // We do agree that double is used to store very large values but at wot cost (at cost of less precision)
+    /* don't use double and float unless for very spefic useCase (instead use long int or long long int) */
+
+
+    //////////////////////////////// Problem //////////////////////////////////////
+    /* Given rectangle of lenght l and b. Print area of rectangle */
+
+    //Constraints:
+    //1 <= l <= 10^9
+    //1 <= b <= 10^9
+
+    //Input Format
+    // 2 spaces seperated integer l and b
+
+    //Output
+    //Single number which is area of rectangle
+
+    //Simple input:
+    // 3 4
+
+    //Sample output:
+    //12
+
+/////////////////Solution
+
+    // int l,b;
+    // cin>>l;
+    // cin>>b;
+
+    // long long int area = l*b*1LL; 
+    // cout<<area;
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+// int n=10;
+// while (n--) // every num instead of 0 is true (1,2,3,4,5,... == true && 0 == false)
+// {
+//     cout<<n<<endl;
+// }
+/////////////
+// for (;;)
+// {
+//     cout<<"HeloWorld! infinately!!!";
+// }
+
+//////// continue  keyword will skip current iteration(1 iteration skiped) and contine next itreation  
+
+///////////////// a simple task /////////////////
+// while(true){
+//     int n;
+//     cin>>n;
+//     if(n==42){
+//         break;
+//     }
+//     cout<<n<<endl;
+// }
+/////////////////////////////////////////////////
+
+////////////// a simple tast ///////////////
+
+// find sum of int s = 123456; // 6+5+4+3+2+1
+
+// int s = 1234567;
+
+// int sum=0;
+
+// while (s>0)
+// {
+//     sum+=s%10;
+//     s /= 10;
+// }
+// cout<<sum;
+
+///////////////////////////////////////////////
+ 
     return 0;
 }
