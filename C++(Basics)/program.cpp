@@ -130,41 +130,51 @@ int main()
     // cout<<str;
     // return 0;
 
+    // int t;
+    // cin>>t;
+    // cin.ignore();// using cin your cursor will be like 1|      and next cin first ignore this '\n' and then take input // just to understand underthehood buffers concept works
+    // while(t--){
+    //     string s;
+    //     getline(cin,s);// but in getline your curesor will not ignore '\n' instead take input directly first input will be '\ns'  //// just to understand underthehood buffers concept works
+    //     cout<<s<<endl;;
+    // }
 
-// int t;
-// cin>>t;
-// cin.ignore();// using cin your cursor will be like 1|      and next cin first ignore this '\n' and then take input // just to understand underthehood buffers concept works
-// while(t--){
-//     string s;
-//     getline(cin,s);// but in getline your curesor will not ignore '\n' instead take input directly first input will be '\ns'  //// just to understand underthehood buffers concept works
-//     cout<<s<<endl;;
-// }
+    ///////////////////////// Reverse string
 
-///////////////////////// Reverse string
+    //     string str;
+    //     string str_rev;
+    //     cin>>str;
 
-//     string str;
-//     string str_rev;
-//     cin>>str;
+    //     for(int i = str.size(); i>=0; i--){
+    // //          str_rev +=str[i]; // it works but not good bcz adding char(str[i]) in string(str_rev) is to preffered + Time Complaxity = O(n)
+    //          str_rev.push_back(str[i]); // it is good to do Time Complaxity = O(1)
+    //     }
 
-//     for(int i = str.size(); i>=0; i--){
-// //          str_rev +=str[i]; // it works but not good bcz adding char(str[i]) in string(str_rev) is to preffered + time complaxity 
-//          str_rev.push_back(str[i]); // it is good to do
-//     }
+    //     cout<<str_rev;
 
-//     cout<<str_rev;
+    ////////////////////// take large number input
 
-////////////////////// take large number input 
+    // string s;
 
-// string s;
+    // cin>>s;
 
-// cin>>s;
+    // int last_digit = (int)s[s.size()-1] - '0' ;
+    // cout<<last_digit;
 
-// int last_digit = (int)s[s.size()-1] - '0' ;
-// cout<<last_digit;
+    ////////////////////////////////////// Arrays
 
+    // int a[5];
+    // a[6] = 10;//
+    // cout<<a[6];// it worked but is an undefined behavoiur the val at unallocated memory loc can be changend by any other process.
+
+    // int n = 1e7; 
+    // int a [n];// this large size is not allowed in local Scope but allowed in global Scope (should must be constant)
+    //////////
+    int n = 1e5; 
+    int a [n];// this large size is allowed in local Scope and its close to max allowed size;
+    a[n-1] = 7;
+    cout<<a[n-1];
 
 
 
 }
-
-
