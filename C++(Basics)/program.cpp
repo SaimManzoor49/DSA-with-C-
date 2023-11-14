@@ -169,11 +169,13 @@ int main()
 
     // int n = 1e7; 
     // int a [n];// this large size is not allowed in local Scope but allowed in global Scope (should must be constant)
+    // in local scope the array will be stored in stack memorey which is small
     //////////
-    int n = 1e5; 
-    int a [n];// this large size is allowed in local Scope and its close to max allowed size;
-    a[n-1] = 7;
-    cout<<a[n-1];
+    // int n = 1e5; 
+    // int a [n];// this large size is allowed in local Scope and its close to max allowed size;
+    // in global scope the array will be stored in data Segment which is larger then stack 
+    // a[n-1] = 7;
+    // cout<<a[n-1];
 
 
 
