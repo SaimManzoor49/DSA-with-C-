@@ -62,6 +62,19 @@ int main()
     //         cout << "No" << endl;
     //     }
     // }
+    
+    //////////////////////////////////////////////////////////// Binary string t0 decimal
+
+    string str;
+    cin>>str;
+        long long int decimal=0;
+        long long int power2=1;
+    for(int i=0;i<str.size();i++){
+        decimal+=(str[i]-'0')*(power2);
+        power2*=2;
+    }
+    cout<<decimal<<endl;
+
 
 
 
