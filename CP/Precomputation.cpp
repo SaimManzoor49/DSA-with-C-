@@ -3,11 +3,12 @@ using namespace std;
 
 const int M = 1e9 + 7; // this numbers has spefic significance first result will be able to stored in int second multimlicative inverse exists of all nums for this num
 // const int N = 1e5 + 10;
-const int N = 1e7 + 10;
+const int N = 1e3 + 10;
 // long long int Fact[N];
-long long int arr[N];
+int arr[N][N];
 // long long int HashArr[N];
-long long int preFixArr[N];
+// long long int preFixArr[N];
+long long int preFixArr[N][N];
 
 int main()
 {
@@ -109,44 +110,72 @@ int main()
         1 <= L , R <= N
     */
 
-//    int n;
-//    cin>>n;
-//    for (int i = 1; i <= n; i++)
-//    {
-//         cin>>arr[i];
-//         // preFixArr[i] = preFixArr[i-1]+arr[i]; // prefix Sum
-//    }
-   
+    //    int n;
+    //    cin>>n;
+    //    for (int i = 1; i <= n; i++)
+    //    {
+    //         cin>>arr[i];
+    //         // preFixArr[i] = preFixArr[i-1]+arr[i]; // prefix Sum
+    //    }
 
-//    int q;
-//    cin>>q;
-//    while (q--)
-//    {
-//     int l,r;
-//     cin>>l>>r;
-//     long long int sum = 0;
-//     for (int i = l; i <= r; i++)
-//     {
-//         sum += arr[i];
-//     }
-//     cout<<sum;
-//    }
-//////////////////////////// Time complaxity = O(n^2) input = 10^10 for given constraints   
-//////////////////////////// using preFix Sum   
+    //    int q;
+    //    cin>>q;
+    //    while (q--)
+    //    {
+    //     int l,r;
+    //     cin>>l>>r;
+    //     long long int sum = 0;
+    //     for (int i = l; i <= r; i++)
+    //     {
+    //         sum += arr[i];
+    //     }
+    //     cout<<sum;
+    //    }
+    //////////////////////////// Time complaxity = O(n^2) input = 10^10 for given constraints
+    //////////////////////////// using preFix Sum
 
-//    int q;
-//    cin>>q;
-//    while (q--)
-//    {
-//     int l,r;
-//     cin>>l>>r;
-//     cout<<preFixArr[r]-preFixArr[l-1];
-//    }
+    //    int q;
+    //    cin>>q;
+    //    while (q--)
+    //    {
+    //     int l,r;
+    //     cin>>l>>r;
+    //     cout<<preFixArr[r]-preFixArr[l-1];
+    //    }
 
-//////////////////////////// Time complaxity = O(n) input = 10^5 for given constraints
+    //////////////////////////// Time complaxity = O(n) input = 10^5 for given constraints
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /*
+        Given array of a size N*N integers. given quries Q and each quriey given a,b,c and d print sum of square represented by (a,b) as top left point and (c,d) as bottom right point
+        Wheres
+            1 <= N <= 10^3
+            1 <= a[i]a[j] <= 10^9
+            1 <= Q <= 10^5
+            1 <= a,b,c,d  <= N
+    */
 
+    int n;
+    cin >> n;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n; j++)
+        {
+            cin >> arr[i][j];
+            preFixArr[i][j] = preFixArr[i][j]+preFixArr[i-1][j]+preFixArr[i][j-1] - preFixArr[i-1][j-1];
+        }
+    }
 
+    int q;
+    cin >> q;
 
+    while (q--)
+    {
+        int a,b,c,d;
+        cin>>a>>b>>c>>d;
+       
+        cout<<preFixArr[c][d] - preFixArr[a-1][d]-preFixArr[c][b-1] + preFixArr[a-1][b-1];
+    }
+    ///////////////////// Complaxity = O(n^3)
 
 
 }
