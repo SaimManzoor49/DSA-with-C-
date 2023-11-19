@@ -5,7 +5,7 @@ const int M = 1e9 + 7; // this numbers has spefic significance first result will
 // const int N = 1e5 + 10;
 const int N = 1e3 + 10;
 // long long int Fact[N];
-int arr[N][N];
+long long int arr[N][N];
 // long long int HashArr[N];
 // long long int preFixArr[N];
 long long int preFixArr[N][N];
@@ -161,7 +161,7 @@ int main()
         for (int j = 1; j <= n; j++)
         {
             cin >> arr[i][j];
-            preFixArr[i][j] = preFixArr[i][j]+preFixArr[i-1][j]+preFixArr[i][j-1] - preFixArr[i-1][j-1];
+            preFixArr[i][j] = arr[i][j] + preFixArr[i - 1][j] + preFixArr[i][j - 1] - preFixArr[i - 1][j - 1];
         }
     }
 
@@ -170,12 +170,10 @@ int main()
 
     while (q--)
     {
-        int a,b,c,d;
-        cin>>a>>b>>c>>d;
-       
-        cout<<preFixArr[c][d] - preFixArr[a-1][d]-preFixArr[c][b-1] + preFixArr[a-1][b-1];
+        int a, b, c, d;
+        cin >> a >> b >> c >> d;
+
+        cout << preFixArr[c][d] - preFixArr[a - 1][d] - preFixArr[c][b - 1] + preFixArr[a - 1][b - 1];
     }
-    ///////////////////// Complaxity = O(n^3)
-
-
+    ///////////////////// Complaxity = O(n^2)
 }
