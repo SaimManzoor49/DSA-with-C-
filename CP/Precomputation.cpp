@@ -154,26 +154,26 @@ int main()
             1 <= a,b,c,d  <= N
     */
 
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= n; j++)
-        {
-            cin >> arr[i][j];
-            preFixArr[i][j] = arr[i][j] + preFixArr[i - 1][j] + preFixArr[i][j - 1] - preFixArr[i - 1][j - 1];
-        }
-    }
+    // int n;
+    // cin >> n;
+    // for (int i = 1; i <= n; i++)
+    // {
+    //     for (int j = 1; j <= n; j++)
+    //     {
+    //         cin >> arr[i][j];
+    //         preFixArr[i][j] = arr[i][j] + preFixArr[i - 1][j] + preFixArr[i][j - 1] - preFixArr[i - 1][j - 1];
+    //     }
+    // }
 
-    int q;
-    cin >> q;
+    // int q;
+    // cin >> q;
 
-    while (q--)
-    {
-        int a, b, c, d;
-        cin >> a >> b >> c >> d;
+    // while (q--)
+    // {
+    //     int a, b, c, d;
+    //     cin >> a >> b >> c >> d;
 
-        cout << preFixArr[c][d] - preFixArr[a - 1][d] - preFixArr[c][b - 1] + preFixArr[a - 1][b - 1];
-    }
+    //     cout << preFixArr[c][d] - preFixArr[a - 1][d] - preFixArr[c][b - 1] + preFixArr[a - 1][b - 1];
+    // }
     ///////////////////// Complaxity = O(n^2)
 }
