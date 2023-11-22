@@ -100,9 +100,51 @@ void p4(){
             cout<<endl;
 
     }
-    
 
 }
+
+
+void p5(){
+
+
+    for (int i = 0; i < 2; i++)
+    {   
+        for (int j = 3; j > 1; j--)
+        {
+        cout<<" ";
+        }
+        cout<<"*";
+        cout<<" ";
+
+    }
+    cout<<endl;
+
+    for (int i = 0; i < 4; i++)
+    {   
+        for (int j = 2; j > 1; j--)
+        {
+        cout<<" ";
+        }
+        cout<<"*";
+
+    }
+    
+    cout<<endl;
+
+    for (int i = 0; i < 3; i++)
+    {   
+        cout<<"*";
+        for (int j = 4; j > 1; j--)
+        {
+        cout<<" ";
+        }
+
+    }
+    
+
+
+}
+
 
 int main()
 {
@@ -114,6 +156,8 @@ int main()
     p3();
     cout<<"------------"<<endl;
     p4();
+    cout<<"------------"<<endl;
+    p5();
 
     return 0;
 }
