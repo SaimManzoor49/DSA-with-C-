@@ -63,6 +63,45 @@ for (int i = 0; i < 6; i++)
 
 void p4(){
     
+    for (int i = 4; i >= 0; i--)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            cout<<" ";
+        }
+        for (int j = 4; j >= i; j--)
+        {
+            cout<<"*";
+        }
+        for (int k = 4; k > i; k--)
+        {
+            cout<<"*";
+        }
+            
+            cout<<endl;
+
+    }
+
+    for (int i = 1; i <= 4; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            cout<<" ";
+        }
+        for (int j = 4; j >= i; j--)
+        {
+            cout<<"*";
+        }
+        for (int k = 4; k > i; k--)
+        {
+            cout<<"*";
+        }
+            
+            cout<<endl;
+
+    }
+    
+
 }
 
 int main()
@@ -73,6 +112,8 @@ int main()
     p2();
     cout<<"------------"<<endl;
     p3();
+    cout<<"------------"<<endl;
+    p4();
 
     return 0;
 }
