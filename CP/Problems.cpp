@@ -4,6 +4,12 @@ using namespace std;
 int main()
 {
 
+////// sum of n natural numbers = n(n-1)/2
+
+
+
+
+
     ////////////////////////////////////////////////////
     /*
     Given arr of size N Given quiries q which is represented by integer L,R Find GCD(Gratest comman Divisor) of arr after including the part from range L to R.
@@ -42,6 +48,9 @@ int main()
     ////////////// time complexity O(t*q*l+r) = O(n^3)
     ////////////////////////////////////////////////////////Sol 2 using pre-compution
 
+
+
+
     int t;
     cin >> t;
     while (t--)
@@ -75,4 +84,9 @@ int main()
         }
     }
     ////////////// time complexity O(n+n+n+(t*Q)) = O(n^2);
+
+
+
+
+
 }
