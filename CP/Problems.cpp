@@ -85,8 +85,6 @@ int main()
     }
     ////////////// time complexity O(n+n+n+(t*Q)) = O(n^2);
 
-
-
-
+    
 
 }
